@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>San Diego Top Spots</title>
+
+		<!-- Bootsrap css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+		<!-- Angular JS and ext JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
+		<script src="index.js"></script>
+	</head>
+	<body>
+		<!-- jQuery -->
+		<script src="//code.jquery.com/jquery.js"></script>
+		<!-- Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <!-- Container for San Diego Top Spots info -->
+    <div class="container">
+  		<h1>San Diego Top Spots - The Angular JS Way</h1>
+  		<hr>
+  		<p>There are some great places to see in downtown San Diego. In this project you'll get to know a few of them by turning the provided JSON file into a table in HTML with links to Google Maps using Angular.</p>
+    </div>
+		
+		<!-- Container for San Diego Top Spots info -->
+		<div class="container" ng-controller="DemoController">
+			<table class="table .table-stripe">
+				<thead>
+					<tr>
+						<th id="name" class=".col-md-2 .info">Name</th>
+						<th id="desc" class=".col-md-6 .info">Description</th>
+						<th id="link" class=".col-md-2 .info">Location</th>
+					</tr>
+					<tr>
+						
+					</tr>
+				</thead>
+				<tbody id="spots" ng-repeat="name in name">
+		          <tr>
+		            <td id="name" class=".col-md-2 .info">{{name.name}}</td>
+						<td id="desc" class=".col-md-6 .info">{{name.description}}</td>
+						<td id="link" class=".col-md-2 .info"><a target="_blank" class="btn btn-primary" ng-href="https://www.google.com/maps?q={{ name.location[0] + ', ' + name.location[1]}}">Open in Google Maps</a></td>
+		          </tr>
+				</tbody>
+			</table>
+		</div>
+
+    <!-- Script tag to call the json file and populate table -->
+		<script src="index.js" type="text/javascript"></script>
+	</body>
+</html>
